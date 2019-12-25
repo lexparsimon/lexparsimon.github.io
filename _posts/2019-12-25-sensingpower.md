@@ -1,6 +1,6 @@
 ---
 title: 'Urban sensing: quantifying the sensing power of vehicle fleets'
-date: 2019-12-25
+date: {}
 tags:
   - urban mobility
   - urban monitoring
@@ -26,7 +26,9 @@ In this post, we will follow the arguments described in a recent [paper](https:/
 In order for a vehicle fleet to scan as large a portion of the urban street network as possible, a dense exploration of what the [authors](https://www.pnas.org/content/116/26/12752) call the city's spatio-temporal "volume" is required. The extent to which a vehicle fleet does this is called its sensing power.
 Among many candidates for the vehicle fleets, such as private cars, buses, and taxis, taxis are the natural choice for deploying the sensors as they are pervasive in the city and do not follow fixed routes.
 
-Imagine a fleet of sensor-equipped vehicles $$\mathcal{V}$$ moving in a city, scanning its street network $$S$$ during a reference period $$\mathcal{T}$$. The nodes
+Imagine a fleet of sensor-equipped vehicles $$\mathcal{V}$$ moving in a city, scanning its street network $$S$$ during a reference period $$\mathcal{T}$$. Below you can see such a fleet of randomly chosen 30 taxis traversing the streets of Yerevan:
+
+We represent the nodes of the street network $$S$$ as potential pick-up and drop-off locations. 
 
 
 some *italics*
