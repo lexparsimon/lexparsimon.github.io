@@ -27,6 +27,7 @@ In order for a vehicle fleet to scan as large a portion of the urban street netw
 Among many candidates for the vehicle fleets, such as private cars, buses, and taxis, taxis are the natural choice for deploying the sensors as they are pervasive in the city and do not follow fixed routes.
 
 Imagine a fleet of sensor-equipped vehicles $$\mathcal{V}$$ moving in a city, scanning its street network $$S$$ during a reference period $$\mathcal{T}$$. Below you can see such a fleet of randomly chosen 30 taxis traversing the streets of Yerevan:
+![Alt Text](/images/urban sensing/Yerevan_30_gg.gif)
 
 We represent the nodes of the street network $$S$$ as potential pick-up and drop-off locations. 
 
