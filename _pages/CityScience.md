@@ -1,6 +1,6 @@
 ---
 layout: archives
-permalink: /City-Science/
+permalink: /CityScience/
 title: "Posts on urban data science"
 author_profile: true
 header:
