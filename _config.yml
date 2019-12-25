@@ -87,7 +87,7 @@ naver_site_verification  :
 twitter:
   username               : lexparsimon
 facebook:
-  username               : YeghikyanGevorg
+  username               : 
   app_id                 :
   publisher              :
 og_image                 : # Open Graph/Twitter default site image
@@ -154,9 +154,6 @@ footer:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url:
-   	- label: "Linkedin"
-       icon: "fab fa-fw fa-linkedin"
-       url: "https://www.linkedin.com/in/gevorg-yeghikyan/"
 
 
 # Reading Files
@@ -299,8 +296,8 @@ defaults:
 
   # _pages
   - scope:
-  	  path: ""
+      path: ""
       type: pages 
     values: 
-    	layout: single
-        author_profile: true
+      layout: single
+      author_profile: true
