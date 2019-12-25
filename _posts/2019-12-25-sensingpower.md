@@ -1,20 +1,30 @@
 ---
-title: "Urban sensing: quantifying the sensing power of vehicle fleets"
-date: 2019-12-25
-tags: [urban mobility, urban monitoring, probability theory, data science]
+title: 'Urban sensing: quantifying the sensing power of vehicle fleets'
+date: {}
+tags:
+  - urban mobility
+  - urban monitoring
+  - probability theory
+  - data science
 header:
-  image: "/images/urban sensing/yerevan_sensing.jpg"
-excerpt: "Urban Sensing, Mobility,Data Science"
-mathjax: "true"
+  image: /images/urban sensing/yerevan_sensing.jpg
+excerpt: 'Urban Sensing, Mobility,Data Science'
+mathjax: 'true'
+published: true
 ---
 
-# H1 Heading
+### Introduction
 
-## H2 heading
+Smart cities are increasingly being equipped with sensors measuring a variety of quantities indicative of the quality of the urban enviroment: air pollution, traffic congestion, air temperature, humidity, road quality, pedestrian density, parking spot occupancy, Wi-Fi accessibility, etc. All these measurements will fuel advanced urban analytics, and become a routine component in urban planning, policy making, and management.
 
-### H3 heading
+However, the city-wide deployment of sensors has limited spatial coverage and comes at a significant cost, and the question of their optimal placement arises naturally. As a solution, the ["drive-by"](http://nrlweb.cs.ucla.edu/nrlweb/publication/download/498/vsnsurvey10.pdf) paradigm has been recently proposed, whereby sensors are installed on third-party vehicles "scanning" the city. While most of the research on drive-by sensing has focused on engineering aspects, the key question of **how many vehicles are required to adequately scan a city** remained unanswered until recently.
 
-normally written
+In this post, we will follow the arguments described in a recent [paper](https://www.pnas.org/content/116/26/12752) from the [MIT Senseable Lab](http://senseable.mit.edu/) to demonstrate the suprisingly huge potential of this method: just 30 randomly chosen taxi vehicles (less than 1% of the entire fleet) covers more than a third of Yerevan city!
+
+### How to measure urban sensing?
+
+In order for a vehicle fleet to scan as large a portion of the urban street network as possible, a dense exploration of what the [authors](https://www.pnas.org/content/116/26/12752) call the city's spatio-temporal "volume" is required. 
+
 
 some *italics*
 
