@@ -7,7 +7,7 @@ tags:
   - probability theory
   - data science
 header:
-  image: /images/urban sensing/yerevan_sensing.jpg
+  image: /images/urban sensing/yerevan_urban_sensing.jpg
 excerpt: 'Urban Sensing, Mobility,Data Science'
 mathjax: 'true'
 published: true
