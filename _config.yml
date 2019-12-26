@@ -87,7 +87,7 @@ naver_site_verification  :
 twitter:
   username               : lexparsimon
 facebook:
-  username               : 
+  username               : YeghikyanGevorg
   app_id                 :
   publisher              :
 og_image                 : # Open Graph/Twitter default site image
@@ -117,6 +117,7 @@ author:
   linkedin         : "gevorg-yeghikyan"
   facebook         : "YeghikyanGevorg"
   medium           : "gevorgyeghikyan"
+  github           : "lexparsimon"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
