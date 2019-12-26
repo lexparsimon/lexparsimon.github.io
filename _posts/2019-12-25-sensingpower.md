@@ -1,6 +1,6 @@
 ---
 title: 'Urban sensing: quantifying the sensing power of vehicle fleets'
-date: 2019-12-26
+date: {}
 tags:
   - urban mobility
   - urban monitoring
@@ -55,10 +55,10 @@ As one might expect from a preferential attachment mechanism, the distributions 
 
 ## Analytic derivation of $$\langle C_{N_V}\rangle$$
 
-Having computed the segment popularities $$p_{i}$$, we now proceed to estimating the the sensing power $$\langle C_{N_V}\rangle$$ analytically by recognizing the connection with the [urn](https://en.wikipedia.org/wiki/Urn_problem) problem in probability theory (this is why knowledge of basic probability theory is so useful!). The street segments are considered as "bins" into which "balls" are placed every time a taxi vehicle traverses that street segment. Using the segment popularities $$p_{i}$$ as the bin probabilities, we can derive the analytic expression for $$\langle C_{N_V}\rangle$$.
+Having computed the segment popularities $$p_{i}$$, we now proceed to estimating the sensing power $$\langle C_{N_V}\rangle$$ analytically by recognizing the connection with the [urn](https://en.wikipedia.org/wiki/Urn_problem) problem in probability theory (this is why knowledge of basic probability theory is so useful!). The street segments are considered as "bins" into which "balls" are placed every time a taxi vehicle traverses that street segment. Using the segment popularities $$p_{i}$$ as the bin probabilities, we can derive the analytic expression for $$\langle C_{N_V}\rangle$$.
 
 As stated in the paper, given the nontrivial topology of $$S$$ and the non-Markovian nature of the
-taxi-drive process (this essentially means that the future does not only depend on the present - loosely speaking the Markov property - but on the past as well), it is difficult to solve for $$\langle C_{N_V}\rangle$$ exactly. However, tt is possible to derive a very good approximation. 
+taxi-drive process (this essentially means that the future does not only depend on the present - loosely speaking the Markov property - but on the past as well), it is difficult to solve for $$\langle C_{N_V}\rangle$$ exactly. However, it is possible to derive a very good approximation. 
 
 As we will see in a bit, it is actually easier to first solve for the trip-level $$\langle C_{N_T}\rangle$$ covered fraction — i.e., when $$N_T$$, the total number of trips, is the dependent variable, so we begin the derivation with this simpler case; the vehicle-level expression for $$\langle C_{N_V}\rangle$$ will then be trivial to obtain.
 
@@ -78,13 +78,13 @@ where $$1_A$$ is the indicator function of event $$A$$. The expectation of this 
 
 $$\langle C\rangle_{\left(N_{T}, L=1\right)}=\frac{1}{N_{S}} \sum_{i=1}^{N_{S}} \mathbb{P}_{N_{T}}\left(M_{i} \geq 1\right)$$.
 
-Now the trick is to note that the number of balls in each bin is binomial random variable $$M_{i} \sim B i\left(N_{T}, p_{i}\right)$$. The survival function of the binomial distribution is $\mathbb{P}\left(M_{i} \geq 1\right)=1-\left(1-p_{i}\right)^{N_{T}}$. Finally, we substitute this into the previous equation and obtain:
+Now the trick is to note that the number of balls in each bin is a binomial random variable $$M_{i} \sim B i\left(N_{T}, p_{i}\right)$$. The survival function of the binomial distribution is $$\mathbb{P}\left(M_{i} \geq 1\right)=1-\left(1-p_{i}\right)^{N_{T}}$$. Finally, we substitute this into the previous equation and obtain:
 
 $$\langle C\rangle_{\left(N_{T}, L=1\right)}=1-\frac{1}{N_{S}} \sum_{i=1}^{N_{S}}\left(1-p_{i}\right)^{N_{T}}$$.
 
 ### Trajectories with fixed length
 
-Trajectories of fixed (i.e., nonrandom) length $$L>1$$ lead to spatial correlations between the counts $$M_i$$ (note: in the classic urn problem, there is already a correlation among the $$M_i$$, since their sum is constant and equal to the total number of balls placed). This is due to the fact that real trajectories are contiguous in space: a trajectory that covers a given segment cannot jump the neighbouring segments at a node, and has to cover on of the neighboring segments. Given the nontrivial topology of the street network $$S$$, the correlations between bins are difficult to model (this would require working with the adjacency matrix of the street network $$S$$). To overcome this, the authors in the paper made the strong assumption that for $$N_{T} \gg 1$$, the spatial correlations between bins are asymptotically zero. This assumption renders our task much more easier. We now imagine that adding a trajectory of length $$L$$ is the same as if we add
+Trajectories of fixed (i.e., nonrandom) length $$L>1$$ lead to spatial correlations between the counts $$M_i$$ (note: in the classic urn problem, there is already a correlation among the $$M_i$$, since their sum is constant and equal to the total number of balls placed). This is due to the fact that real trajectories are contiguous in space: a trajectory that covers a given segment cannot jump the neighbouring segments at a node, and has to cover one of the neighboring segments. Given the nontrivial topology of the street network $$S$$, the correlations between bins are difficult to model (this would require working with the adjacency matrix of the street network $$S$$). To overcome this, the authors in the paper made the strong assumption that for $$N_{T} \gg 1$$, the spatial correlations between bins are asymptotically zero. This assumption renders our task much more easier. We now imagine that adding a trajectory of length $$L$$ is the same as if we add
 $$L$$ balls into (not necessarily contiguous) bins chosen *randomly* according to $$p_i$$. This means that choosing $$N_T$$ trajectories of fixed length $$L$$ from $$\mathcal{P}$$ is equivalent to placing
 $$L \star N_T$$ balls into $$N_S$$ bins: $$\langle C\rangle_{\left(N_{T}, L_{f i x e d}\right)}=\langle C\rangle_{\left(N_{T} \star L, L=1\right)}$$. Hence, the expected value of the coverage can be obtained by modifying the result obtained in the unit length case:
 
@@ -95,7 +95,7 @@ The assumption that neighbouring street segments are spatially uncorellated is a
 ### Trajectories of random lengths
 
 Now, generalizing to random $$L$$ is easy.
-Let $$S_{N_{T}}=\sum_{i=1}^{N_{T}} L_{i}$$ be the number of segments covered by $$N_T$$.
+Let $$S_{N_{T}}=\sum_{i=1}^{N_{T}} L_{i}$$ be the number of segments covered by $$N_T$$
 trajectories. By the [law of total expectation](https://en.wikipedia.org/wiki/Law_of_total_expectation)
 
 $$\langle C\rangle_{\left(N_{T}, L\right)}=\sum_{n=0}^{\infty}\langle C\rangle_{\left(n, L_{f i x e d}\right)} \mathbb{P}\left(S_{N_{T}}=n\right)$$,
@@ -114,17 +114,19 @@ And substituting this into the previous equation above, we obtain the nasty
 
 $$\langle C\rangle_{\left(N_{T}, L\right)}=\frac{1}{N_{S} n \sigma_{S} \sqrt{2 \pi}} \sum_{n=0}^{\infty} \sum_{i=1}^{N_{S}}\left(1-\left(1-p_{i}\right)^{n}\right) \mathrm{e}^{-\frac{\left(\ln n-\mu_{S}\right)^{2}}{2 \sigma_{S}^{2}}}$$.
 
-This equation completely models the trip-level fraction $$\langle C\rangle_{\left(N_{T}, L\right)}$$. However, a non-trivial thing to notice: the sum over $$n$$ is dominated by its expectation, so simplify matters by replacing $$n$$ by its expected value $$\langle L\rangle \star N_{T}$$. This gives us much simpler and nicer formula $$\left.\langle C\rangle_{\left(N_{T}, L\right)}=\langle C\rangle_{\left(N_{T}^{*}\right.}\langle L\rangle, L=1\right)$$, or 
+This equation completely models the trip-level fraction $$\langle C\rangle_{\left(N_{T}, L\right)}$$. However, a non-trivial thing to notice: the sum over $$n$$ is dominated by its expectation, so we simplify matters by replacing $$n$$ by its expected value $$\langle L\rangle \star N_{T}$$. This gives us much simpler and nicer formula $$\left.\langle C\rangle_{\left(N_{T}, L\right)}=\langle C\rangle_{\left(N_{T}^{*}\right.}\langle L\rangle, L=1\right)$$, or 
 
 $$\langle C\rangle_{N_{T}} \approx 1-\frac{1}{N_{S}} \sum_{i=1}^{N_{S}}\left(1-p_{i}\right)^{\langle L\rangle \star N_{T}}$$.
 
 ### Extension to vehicle level
 
-As promised, now we do the final step of obtaining the fraction $$\langle C\rangle_{N_V}$$ as a function of the number of vehicles. Let $$B$$ be the random number of segments that a random taxi in $$\mathcal{V}$$ covers during the period $$\mathcal{T}$$. As we can see in the image below, $$B$$ is also lognormally distributed:
+As promised, now we do the final step of obtaining the fraction $$\langle C\rangle_{N_V}$$ as a function of the number of vehicles. Let $$B$$ be the random number of segments that a random taxi in $$\mathcal{V}$$ covers during the period $$\mathcal{T}$$. As we can see in the plot below, $$B$$ is also lognormally distributed:
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/urban sensing/Yerevan_trip_length_distribution.jpg" alt="Yerevan trip length distribution">
 
-Now, in the expression for $$\langle C\rangle_{N_{T}}$$ we simply replace $$\langle L\rangle$$ with $$\langle B\rangle$$ and obtain our desired $$\langle C\rangle_{N_{V}}$$.
+Now, in the expression for $$\langle C\rangle_{N_{T}}$$ we simply replace $$\langle L\rangle$$ with $$\langle B\rangle$$ and obtain our desired $$\langle C\rangle_{N_{V}}$$:
+
+$$\langle C\rangle_{N_{V}} \approx 1-\frac{1}{N_{S}} \sum_{i=1}^{N_{S}}\left(1-p_{i}\right)^{\langle B\rangle \star N_{V}}$$.
 
 ## Results
 
@@ -132,7 +134,7 @@ Now that we have the analytical expression for $$\langle C\rangle_{N_{V}}$$, we 
 1. using the $$p_i$$ obtained from the data
 2. using the $$p_i$$ obtained from the taxi-drive simulation
 
-Finally, we plot it against $$N_{V}$$:
+Finally, we plot them against $$N_{V}$$:
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/urban sensing/Yerevan_fraction.jpg" alt="Yerevan sensing power">
 
