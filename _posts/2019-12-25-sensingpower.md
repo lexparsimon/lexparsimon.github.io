@@ -1,6 +1,6 @@
 ---
 title: 'Urban sensing: quantifying the sensing power of vehicle fleets'
-date: 2019-12-26
+date: {}
 tags:
   - urban mobility
   - urban monitoring
@@ -42,7 +42,7 @@ To model the taxis' movements, the paper introduces the taxi-drive process. The 
 
 * that taxis travel to randomly chosen destinations via shortest paths, with ties between multiple shortest paths broken at random. 
 * Once a destination is reached, another destination is chosen, again at random, and the process repeats. 
-* To reflect heterogeneities in real taxi trajectories, destinations  are not selected uniformly at random. Instead, already visited nodes are chosen preferentially: The probability $$q_{n}(t)$$ of selecting a node $$n $$ is proportional to $$1+v_{n}^{\beta}(t)$$, where $$v_{n}(t)$$ is the total number of times node $$n$$ has been visited at during the time interval $$```[t_{start}, t)```$$ and $$\beta$$ is a city-specific parameter
+* To reflect heterogeneities in real taxi trajectories, destinations  are not selected uniformly at random. Instead, already visited nodes are chosen preferentially: The probability $$q_{n}(t)$$ of selecting a node $$n $$ is proportional to $$1+v_{n}^{\beta}(t)$$, where $$v_{n}(t)$$ is the total number of times node $$n$$ has been visited at during the time interval $$(t_{start}, t)$$ and $$\beta$$ is a city-specific parameter
 to be tweaked. This ["preferential attachment"](https://en.wikipedia.org/wiki/Preferential_attachment) mechanism, colloquially known as rich-get-richer effect and discussed mainly within the context of wealth distribution and tie formation in social networks, has been [shown](http://barabasi.com/publications/10/human-dynamics) to capture the statistical properties of human mobility and, as it turns out, also captures those of taxis.
 
 We first calculate the street segment popularities $$p_{i}$$, the relative frequency each street segment in the city is traversed by the vehicles in the fleet $$\mathcal{V}$$ during $$\mathcal{T}$$ (the $$p_{i}$$ sum to 1) from the GG taxi data (**spoiler**: we are going to use the $$p_{i}$$ to compute our target $$\langle C\rangle$$). Then, we run the simulation of the taxi-drive process with the same fleet size and the same number of trips for each vehicle. We discover that, despite the unrealistic assumptions in the model, the taxi-drive process captures quite well the statistical properties of real taxis' trajectories.
@@ -70,7 +70,7 @@ Let $$L$$ be the random length of a trajectory. The special case of $$L=1$$ is t
 
 $$\vec{M} \sim \operatorname{Multi}\left(N_{T}, \vec{p}\right)$$,
 
-where $\vec{p}=\left(p_{1}, p_{2}, \dots p_{N_{s}}\right)$. Now, since a street segment is considered covered during time period $$\mathcal{T}$$ if it is traversed by at least one vehicle from $$\mathcal{V}$$, the (random) fraction of street segments covered is
+where $$\vec{p}=\left(p_{1}, p_{2}, \dots p_{N_{s}}\right)$$. Now, since a street segment is considered covered during time period $$\mathcal{T}$$ if it is traversed by at least one vehicle from $$\mathcal{V}$$, the (random) fraction of street segments covered is
 
 $$C=\frac{1}{N_{S}} \sum_{i=1}^{N_{S}} 1_{\left(M_{i} \geq 1\right)}$$,
 
@@ -82,7 +82,7 @@ Now the trick is to note that the number of balls in each bin is binomial random
 
 $$\langle C\rangle_{\left(N_{T}, L=1\right)}=1-\frac{1}{N_{S}} \sum_{i=1}^{N_{S}}\left(1-p_{i}\right)^{N_{T}}$$.
 
-#### Trajectories with fixed length
+### Trajectories with fixed length
 
 Trajectories of fixed (i.e., nonrandom) length $$L>1$$ lead to spatial correlations between the counts $$M_i$$ (note: in the classic urn problem, there is already a correlation among the $$M_i$$, since their sum is constant and equal to the total number of balls placed). This is due to the fact that real trajectories are contiguous in space: a trajectory that covers a given segment cannot jump the neighbouring segments at a node, and has to cover on of the neighboring segments. Given the nontrivial topology of the street network $$S$$, the correlations between bins are difficult to model (this would require working with the adjacency matrix of the street network $$S$$). To overcome this, the authors in the paper made the strong assumption that for $$N_{T} \gg 1$$, the spatial correlations between bins are asymptotically zero. This assumption renders our task much more easier. We now imagine that adding a trajectory of length $$L$$ is the same as if we add
 $$L$$ balls into (not necessarily contiguous) bins chosen *randomly* according to $$p_i$$. This means that choosing $$N_T$$ trajectories of fixed length $$L$$ from $$\mathcal{P}$$ is equivalent to placing
@@ -120,7 +120,7 @@ $$\langle C\rangle_{N_{T}} \approx 1-\frac{1}{N_{S}} \sum_{i=1}^{N_{S}}\left(1-p
 
 ### Extension to vehicle level
 
-As promised, now we do the final step of obtaining the fraction $\langle C\rangle_{N_V}$ as a function of the number of vehicles. Let $$B$$ be the random number of segments that a random taxi in $$\mathcal{V}$$ covers during the period $$\mathcal{T}$$. As we can see in the image below, $$B$$ is also lognormally distributed:
+As promised, now we do the final step of obtaining the fraction $$\langle C\rangle_{N_V}$$ as a function of the number of vehicles. Let $$B$$ be the random number of segments that a random taxi in $$\mathcal{V}$$ covers during the period $$\mathcal{T}$$. As we can see in the image below, $$B$$ is also lognormally distributed:
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/urban sensing/Yerevan_trip_length_distribution.jpg" alt="Yerevan trip length distribution">
 
