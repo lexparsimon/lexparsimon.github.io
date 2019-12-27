@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: collection
 permalink: /DataScience/
 title: Posts on data science, probability, and statistics
 author_profile: true
