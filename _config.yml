@@ -285,6 +285,11 @@ compress_html:
   ignore:
     envs: development
 
+# Collections
+collections:
+  statistics:
+    output: true
+    permalink: /:collection/:path/
 
 # Defaults
 defaults:
@@ -307,3 +312,12 @@ defaults:
     values: 
       layout: single
       author_profile: true
+      
+  # _statistics
+  - scope:
+      path: ""
+      type: statistics
+    values:
+      layout: single
+      author_profile: true
+      share: true
