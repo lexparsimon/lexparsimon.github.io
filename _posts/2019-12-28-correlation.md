@@ -7,7 +7,7 @@ tags:
   - correlation
   - data science
 header:
-  image: /images/gini/gini_cover.jpg
+  image: /images/correlation/MU.jpg
 excerpt: 'Statistics, Probability Theory, Correlation, Data Science'
 mathjax: 'true'
 ---
