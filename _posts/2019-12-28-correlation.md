@@ -1,7 +1,4 @@
 ---
-published: false
----
----
 title: 'Why correlation can tell us nothing about outperformance'
 date: 2019-12-28
 tags:
