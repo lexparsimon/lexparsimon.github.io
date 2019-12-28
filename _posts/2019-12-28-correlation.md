@@ -51,7 +51,9 @@ $$P(X>K, Y>K) = \int_{K}^{\infty}\left(\int_{K}^{\infty} \frac{e^{-\frac{x^{2}+y
 is impossible to integrate analytically, so we have to resort to numerical computation. Let's see how we can do it in python.
 
 ```python
-import numpy as np 
+import numpy as np
+from scipy.stats import norm
+from scipy.stats import mvn
 def phi_func(rho, K):
     
     '''Here we define the phi as a function of rho and K'''
