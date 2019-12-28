@@ -26,25 +26,25 @@ Let's say we have two standard normally distributed variables $X$ and $Y$  with 
 
 $$\Sigma =\left[\begin{array}{cc}{1} & {0.8} \\ {0.8} & {1} \end{array}\right]$$
 
-Due to the variables being standard normal, the correlation is $\rho= 0.8$. If we hear someone reporting this correlation between, say, _IQ_ and "success" (whatever it means), it would probably sound convincing.
+Due to the variables being standard normal, the correlation is $$\rho= 0.8$$. If we hear someone reporting this correlation between, say, _IQ_ and "success" (whatever it means), it would probably sound convincing.
 
-Let's visualise the bivariate distribution of $X$ and $Y$:
+Let's visualise the bivariate distribution of $$X$$ and $$Y$$:
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/correlation/bivariate.jpeg" alt="Bivariate Normal Distribution">
 
 ## Proportion of uncertainty
 
-In order to understand what the correlation tells us at different intervals of the domain of the data distribution, let's consider the ratio of the probability of both $X$ _and_ $Y$ exceeding a threshold $K$ under a correlation structure $\rho$, over the probability of both $X$ _and_ $Y$ exceeding this threshold given $\rho=1$. Let's call this ratio the "__proportion of uncertainty__":
+In order to understand what the correlation tells us at different intervals of the domain of the data distribution, let's consider the ratio of the probability of both $X$ _and_ $Y$ exceeding a threshold $K$ under a correlation structure $\rho$, over the probability of both $$X$$ _and_ $$Y$$ exceeding this threshold given $$\rho=1$$. Let's call this ratio the "__proportion of uncertainty__":
 
 $$\phi(\rho, K)=\frac{P\left.(X>K, Y>K)\right|_{\rho}}{P\left.(X>K, Y>K)\right|_{\rho=1}}=\frac{P(X>K, Y>K)}{P(X>K)}$$
 
-Before moving on to evaluate $\phi(\rho, K)$, let's first take a look at what the threshold $K$ represents:
+Before moving on to evaluate $$\phi(\rho, K)$$, let's first take a look at what the threshold $$K$$ represents:
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/correlation/bivariate_thresh.jpeg" alt="Bivariate Normal Distribution threshold">
 
-In the image above, $K=2$, and the shaded region represents the subset of the sample space for which both $X > K$ _and_ $Y > K$.
+In the image above, $$K=2$$, and the shaded region represents the subset of the sample space for which both $$X > K$$ _and_ $$Y > K$$.
 
-In order to evaluate $\phi(\rho, K)$, we notice that the joint probability 
+In order to evaluate $$\phi(\rho, K)$$, we notice that the joint probability 
 
 $$P(X>K, Y>K) = \int_{K}^{\infty}\left(\int_{K}^{\infty} \frac{e^{-\frac{x^{2}+y^{2}-2 x y \rho}{2\left(1-\rho^{2}\right)}}}{2 \pi \sqrt{1-\rho^{2}}} d x\right) d y$$ 
 
@@ -70,13 +70,13 @@ def phi_func(rho, K):
     
     return nom_phi/(1 - norm.cdf(K))
 ```
-Having $\phi(\rho, K)$, we plot it against $\rho$, and obtain:
+Having $$\phi(\rho, K)$$, we plot it against $$\rho$$, and obtain:
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/correlation/MU.jpeg" alt="Proportion of uncertainty">
 
 ## Conclusion
 
-What we can see from the plot is that the information conveyed by the correlation between $X$ and $Y$ behaves disproportianately. From a practical point of view, this means that a correlation of 0.5, for instance, carries very little information ($\phi$ is somewhere between 0.1 and 0.3) for ordinary values (up to two standard deviations away) and carries essentially __no__ information about the tails (i.e. outliers or outperformers).
+What we can see from the plot is that the information conveyed by the correlation between $$X$$ and $$Y$$ behaves disproportianately. From a practical point of view, this means that a correlation of 0.5, for instance, carries very little information ($$\phi$$ is somewhere between 0.1 and 0.3) for ordinary values (up to two standard deviations away) and carries essentially __no__ information about the tails (i.e. outliers or outperformers).
 
 Returning to Taleb's attack on the validity of psychometric tests, the result obtained above means, to quote Taleb, that _you need something >.98 to "explain" genius_.
 
