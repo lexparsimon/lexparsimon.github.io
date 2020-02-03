@@ -1,5 +1,5 @@
 ---
-title: '<s>Love</s> Urban policy in the times of <s>cholera</s> coronavirus.'
+title: '<s>Love</s> Urban policy in the time of <s>Cholera</s> Coronavirus.'
 date: 2020-02-03
 tags:
   - coronavirus
