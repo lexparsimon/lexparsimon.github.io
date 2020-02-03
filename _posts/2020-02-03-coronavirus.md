@@ -58,9 +58,15 @@ Further, to formalise how the disease is transmitted by an infected person, we n
 We can now proceed to the model dynamics:
 
 $$
+\begin{equation}
 \begin{aligned}
-S_{j, t+1} &=S_{j, t}-\frac{\beta_{t} S_{j, t} I_{j, t}}{N_{j}} - \frac{\beta_{t} S_{j, t} \sum_{k} m_{j, k}^{t} x_{k, t}}{N_{j} + \sum_{k} m_{j, k}^{t}} \\
-I_{j, t+1} &=I_{j, t}+\frac{\beta_{t} S_{j, t} I_{j, t}}{N_{j}} +  \frac{\beta_{t} S_{j, t} \sum_{k} m_{j, k}^{t} x_{k, t}}{N_{j} + \sum_{k} m_{j, k}^{t}} -\gamma I_{j, t} \\
+S_{j, t+1} &=S_{j, t}-\frac{\beta_{j, t} S_{j, t} I_{j, t}}{N_{j}} - \frac{\alpha S_{j, t} \sum_{k} m_{j, k}^{t} x_{k, t} \beta_{k, t}}{N_{j} + \sum_{k} m_{j, k}^{t}} \\
+I_{j, t+1} &=I_{j, t}+\frac{\beta_{j, t} S_{j, t} I_{j, t}}{N_{j}} +  \frac{\alpha S_{j, t} \sum_{k} m_{j, k}^{t} x_{k, t} \beta_{k, t}}{N_{j} + \sum_{k} m_{j, k}^{t}} -\gamma I_{j, t} \\
 R_{j, t+1} &=R_{j, t}+\gamma I_{j, t},
 \end{aligned}
+\end{equation}
 $$
+
+where $$\beta_{k, t}$$ is the (random) transmission rate at location $$k$$ on day $$t$$, and $$\alpha$$ is a coefficient denoting the [modal share](https://en.wikipedia.org/wiki/Modal_share) or the intensity of public transport vs. private car travel modes in the city.
+
+The model dynamics described in the above equations are very simple: on day $$t+1$$ at location $$j$$, we need to subtract from the susceptible population S_{j, t} the fraction of people infected within location $$j$$ (the second term in the first equation) as well as the fraction of infected people that have arrived from other locations in the city, weighted by their respective tramsission rates $$\beta_{k, t}$$ (the third term in the first equation). Since the total population $$N_j = S_j + I_j + R_j$$, we need to move the subtracted portion to the infected group () 
