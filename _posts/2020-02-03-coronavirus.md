@@ -72,9 +72,101 @@ where $$\beta_{k, t}$$ is the (random) transmission rate at location $$k$$ on da
 The model dynamics described in the above equations are very simple: on day $$t+1$$ at location $$j$$, we need to subtract from the susceptible population S_{j, t} the fraction of people infected within location $$j$$ (the second term in the first equation) as well as the fraction of infected people that have arrived from other locations in the city, weighted by their respective tramsission rates $$\beta_{k, t}$$ (the third term in the first equation). Since the total population $$N_j = S_j + I_j + R_j$$, we need to move the subtracted portion to the infected group, while also moving those recovered to $$R_{j, t+1}$$ (second and third equations).
 
 ## Simulation setup
-For this analysis, we will use the aggregated $$OD$$ flow matrix of a typical day obtained from GPS data provided by local ride sharing company [gg](https://www.ggtaxi.com) as a proxy for the mobility patterns in Yerevan city. Next, we need the population counts in each $$250 \times 250m$$ grid cell, which we approximate by proportionally scaling the extracted flow counts so that the total inflows in different locations sum up to approximately half of Yerevan's population of 1.1 million. This is actually a bold assumption, but since varying this portion yielded very similar results, we will stick to it. Finally, we will start our simulations by choosing a rather low public transport share of $$\alpha=0.2$$:
+For this analysis, we will use the aggregated $$OD$$ flow matrix of a typical day obtained from GPS data provided by local ride sharing company [gg](https://www.ggtaxi.com) as a proxy for the mobility patterns in Yerevan city. Next, we need the population counts in each $$250 \times 250m$$ grid cell, which we approximate by proportionally scaling the extracted flow counts so that the total inflows in different locations sum up to approximately half of Yerevan's population of 1.1 million. This is actually a bold assumption, but since varying this portion yielded very similar results, we will stick to it.
+
+### Reducing public transport?
+For our first simulation, we will imagine a sustainable public transport-dominated future urban mobility with $$\alpha=0.9$$:
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/coronavirus/virus_public_transport.jpg" alt="Yerevan high public transport share simulation">
+
+We see how fast the infected fraction of the population is climbing up immediately reaching the epidemic's peak on around day 8-10, with **almost 70% of the population infected**, while only a small portion (~10%) of the population having recovered. Towards day 100, when the epidemic has receded, we see **the fraction of recovered individuals reach a staggering 90%**! Now let's see if reducing the intensity of public transport travel to something like $$\alpha=0.2$$ has any effect on mitigating the epidemic spread. This can either be interpreted as taking drastic measures to reduce urban mobility (e.g., by issuing a curfew) or as increasing the share of private car travel to reduce chances of infection *during* the travel.    
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/coronavirus/virus_normal.jpg" alt="Yerevan low public transport share simulation">
 
-We see how the high $$R_0$$ leads to a rapid growth of the infected fraction of the city population, and the corresponding rapid decline of the susceptible fraction curve. The peak of the epidemic comes somewhere between day 16 and 20. On day 100, when the epidemic has receded, the recovered group constitutes almost 80% of the total population!
+We see how the peak of the epidemic comes somewhere between day 16 and 20, with a **significantly smaller infected group** (~45%) and twice as many recovered (~20%). Towards the end of the epidemic, the fraction of susceptible individuals is also twice as big (~24% vs. ~12%), meaning that more people have escaped the disease. As expected, **we see that the introduction of dramatic measures to temporarily bring urban mobility down has a big impact on the disease spreading dynamics**.
 
+### Containing popular locations?
+
+Now, let's see whether another intuitive idea of completely cutting off a few key popular locations has the desired effect. To do this, let's pick the locations associated with the upper 1 percentile of mobility flows,
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/coronavirus/Yerevan_top_locs.jpg" alt="Yerevan top locations">
+
+and completely block all flow to and from those locations, effectively establishing there a quarantine regime. Choosing a moderate $$\alpha = 0.5$$, we obtain:
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/coronavirus/virus_without_malls.jpg" alt="Yerevan simulation without top locations">
+
+We see an even smaller fraction of infected individuals at the epidemic's peak (~35%), and, most importantly, we see that towards the end of the epidemic, **around half of the population remains susceptible, effectively escaping from contracting the infection**!
+
+<details><summary markdown="span">Python code for running the epidemic spread model</summary>
+  
+  ```python
+  import numpy as np
+  # initialize the population vector from the origin-destination flow matrix
+  N_k = np.abs(np.diagonal(OD) + OD.sum(axis=0) - OD.sum(axis=1))
+  locs_len = len(N_k)                 # number of locations
+  SIR = np.zeros(shape=(locs_len, 3)) # make a numpy array with 3 columns for keeping track of the S, I, R groups
+  SIR[:,0] = N_k                      # initialize the S group with the respective populations
+  
+  first_infections = np.where(SIR[:, 0]<=thresh, SIR[:, 0]//20, 0)   # for demo purposes, randomly introduce infections
+  SIR[:, 0] = SIR[:, 0] - first_infections
+  SIR[:, 1] = SIR[:, 1] + first_infections                           # move infections to the I group
+  
+  # row normalize the SIR matrix for keeping track of group proportions
+  row_sums = SIR.sum(axis=1)
+  SIR_n = SIR / row_sums[:, np.newaxis]
+  
+  # initialize parameters
+  beta = 1.6
+  gamma = 0.04
+  public_trans = 0.5                                 # alpha
+  R0 = beta/gamma
+  beta_vec = np.random.gamma(1.6, 2, locs_len)
+  gamma_vec = np.full(locs_len, gamma)
+  public_trans_vec = np.full(locs_len, public_trans)
+  
+  # make copy of the SIR matrices 
+  SIR_sim = SIR.copy()
+  SIR_nsim = SIR_n.copy()
+  
+  # run model
+  print(SIR_sim.sum(axis=0).sum() == N_k.sum())
+  from tqdm import tqdm_notebook
+  infected_pop_norm = []
+  susceptible_pop_norm = []
+  recovered_pop_norm = []
+  for time_step in tqdm_notebook(range(100)):
+      infected_mat = np.array([SIR_nsim[:,1],]*locs_len).transpose()
+      OD_infected = np.round(OD*infected_mat)
+      inflow_infected = OD_infected.sum(axis=0)
+      inflow_infected = np.round(inflow_infected*public_trans_vec)
+      print('total infected inflow: ', inflow_infected.sum())
+      new_infect = beta_vec*SIR_sim[:, 0]*inflow_infected/(N_k + OD.sum(axis=0))
+      new_recovered = gamma_vec*SIR_sim[:, 1]
+      new_infect = np.where(new_infect>SIR_sim[:, 0], SIR_sim[:, 0], new_infect)
+      SIR_sim[:, 0] = SIR_sim[:, 0] - new_infect
+      SIR_sim[:, 1] = SIR_sim[:, 1] + new_infect - new_recovered
+      SIR_sim[:, 2] = SIR_sim[:, 2] + new_recovered
+      SIR_sim = np.where(SIR_sim<0,0,SIR_sim)
+      # recompute the normalized SIR matrix
+      row_sums = SIR_sim.sum(axis=1)
+      SIR_nsim = SIR_sim / row_sums[:, np.newaxis]
+      S = SIR_sim[:,0].sum()/N_k.sum()
+      I = SIR_sim[:,1].sum()/N_k.sum()
+      R = SIR_sim[:,2].sum()/N_k.sum()
+      print(S, I, R, (S+I+R)*N_k.sum(), N_k.sum())
+      print('\n')
+      infected_pop_norm.append(I)
+      susceptible_pop_norm.append(S)
+      recovered_pop_norm.append(R)
+  ```
+</details>
+<br/>
+
+Here is a small animation visualising the dynamics of the high public transport share scenario:
+![Alt Text](/images/coronavirus/coronavirus_60_small.gif)
+
+## Conclusion
+
+By no means claiming accurate epidemic modelling (or even any substantial knowledge in epidemiology beyond the basics), our aim in this post was to get a first insight on how network effects come into play in an urban setting during an infectuous disease outbreak. With ever increasing mobility and dynamics, our cities become more exposed to "black swans" and become more fragile. And since **you can't fetch the coffee if you're dead**, smart and sustainable cities will be meaningless without effective and efficient crisis handling capability and mechanisms. For instance, we saw that the introduction of quarantine regimes in key locations, or taking draconian measures to curb mobility can be instrumental during such a health crisis. However, a further important question would be **how to implement such measures while minimizing damage and loss to the functioning of the city and its economy?**
+
+Further yet, the exact epidemic spreading mechanisms of infectuous diseases is [still an active area of research](https://link.springer.com/chapter/10.1007/978-1-4614-4496-1_4) and its advances will have to be communicated to and integrated in urban planning, policy making, and management to make our cities [antifragile](https://en.wikipedia.org/wiki/Antifragility).  
