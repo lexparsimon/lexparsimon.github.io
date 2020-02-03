@@ -21,3 +21,5 @@ In this post, we will discuss what can happen when an epidemic strikes a city, w
 ## Urban mobility
 Effective, efficient, and sustainable urban mobility is of crucial importance for the functioning of modern cities. It has been [shown](https://www.nature.com/articles/s41467-019-12809-y) to directly affect livability and economic output (GDP) of cities. However, **in the event of an epidemic, it will add fuel to the fire**, amplifyig and propagating the disease spread.
 
+So let's begin by looking at the 
+
