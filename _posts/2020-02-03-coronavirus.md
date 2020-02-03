@@ -53,5 +53,14 @@ where $$\beta_{t}$$ is the transmission rate on day $$t$$; $$x_{k, t}$$ and $$y_
 Once the infections are introduced at random locations, the disease spreads both within those locations and is carried and transmitted in other locations by travelling individuals. This is where the urban mobility patterns characterised by the $$OD$$ flow matrix play a crucial role. 
 Further, to formalise how the disease is transmitted by an infected person, we need the *basic reproduction number*, $$R_0$$. It is defined as $$R_0 = \beta_{t}/\gamma$$ where $$\gamma$$ is the recovery rate, and can be thought of as the expected number of secondary infections after an infected individual comes into contact with a susceptible population. At the time of this writing, the basic reproduction number for the Wuhan coronavirus [has been estimated](https://www.nejm.org/doi/full/10.1056/NEJMoa2001316) to be between 1.4 and 4. Let's take the worst case and assume it's 4. However, we should note that it's actually a random variable and the reported number is but the *expected* number. To make things a bit more interesting, we will run our simulations with different $$R_0$$s at each locations drawn from a good candidate distribution, $$Gamma$$, with mean 4:
 
+<img src="{{ site.url }}{{ site.baseurl }}/images/coronavirus/R_0.jpg" alt="coronavirus R_0">
 
+We can now proceed to the model dynamics:
 
+$$
+\begin{aligned}
+S_{j, t+1} &=S_{j, t}-\frac{\beta_{t} S_{j, t} I_{j, t}}{N_{j}} - \frac{\beta_{t} S_{j, t} \sum_{k} m_{j, k}^{t} x_{k, t} y_{j, t}}{N_{j} + \sum_{k} m_{j, k}^{t}} \\
+I_{j, t+1} &=I_{j, t}+\frac{\beta_{t} S_{j, t} I_{j, t}}{N_{j}}-\gamma I_{j, t} +  \frac{\beta_{t} S_{j, t} \sum_{k} m_{j, k}^{t} x_{k, t} y_{j, t}}{N_{j} + \sum_{k} m_{j, k}^{t}} \\
+R_{j, t+1} &=R_{j, t}+\gamma I_{j, t}
+\end{aligned}
+$$
