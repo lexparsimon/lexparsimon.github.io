@@ -7,7 +7,7 @@ tags:
   - urban policy
   - data science
 header:
-  image: /images/drones/drone_cover.jpg
+  image: /images/coronavirus/corona_virus.jpg
 excerpt: 'Coronavirus, Mathematical Modelling, Data Science'
 mathjax: 'true'
 ---
