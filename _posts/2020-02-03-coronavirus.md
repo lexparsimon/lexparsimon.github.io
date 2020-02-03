@@ -13,5 +13,4 @@ mathjax: 'true'
 ---
 
 ## Are cities prepared for epidemics? 
-The recent Coronavirus outbreak in Wuhan, China, has sent shocks across financial markets and economies,and has duly triggered panic
-among the general population all over the world.   
+The recent 2019-nCoV [Wuhan oronavirus](https://en.wikipedia.org/wiki/Novel_coronavirus_(2019-nCoV)) outbreak in China has sent shocks through financial markets and entire economies, and has duly triggered panic among the general population around the world. On 30 January 2020, 2019-nCoV was even [designated](https://www.bbc.com/news/world-51318246) a global health emergency by the World Health Organization (WHO). ---strikethrough text---
