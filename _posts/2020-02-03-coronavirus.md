@@ -59,8 +59,8 @@ We can now proceed to the model dynamics:
 
 $$
 \begin{aligned}
-S_{j, t+1} &=S_{j, t}-\frac{\beta_{t} S_{j, t} I_{j, t}}{N_{j}} - \frac{\beta_{t} S_{j, t} \sum_{k} m_{j, k}^{t} x_{k, t} y_{j, t}}{N_{j} + \sum_{k} m_{j, k}^{t}} \\
-I_{j, t+1} &=I_{j, t}+\frac{\beta_{t} S_{j, t} I_{j, t}}{N_{j}}-\gamma I_{j, t} +  \frac{\beta_{t} S_{j, t} \sum_{k} m_{j, k}^{t} x_{k, t} y_{j, t}}{N_{j} + \sum_{k} m_{j, k}^{t}} \\
-R_{j, t+1} &=R_{j, t}+\gamma I_{j, t}
+S_{j, t+1} &=S_{j, t}-\frac{\beta_{t} S_{j, t} I_{j, t}}{N_{j}} - \frac{\beta_{t} S_{j, t} \sum_{k} m_{j, k}^{t} x_{k, t}}{N_{j} + \sum_{k} m_{j, k}^{t}} \\
+I_{j, t+1} &=I_{j, t}+\frac{\beta_{t} S_{j, t} I_{j, t}}{N_{j}} +  \frac{\beta_{t} S_{j, t} \sum_{k} m_{j, k}^{t} x_{k, t}}{N_{j} + \sum_{k} m_{j, k}^{t}} -\gamma I_{j, t} \\
+R_{j, t+1} &=R_{j, t}+\gamma I_{j, t},
 \end{aligned}
 $$
