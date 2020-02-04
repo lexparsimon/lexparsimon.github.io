@@ -85,13 +85,13 @@ We see how fast the infected fraction of the population is climbing up immediate
 
 We see how the peak of the epidemic comes somewhere between day 16 and 20, with a **significantly smaller infected group** (~45%) and twice as many recovered (~20%). Towards the end of the epidemic, the fraction of susceptible individuals is also twice as big (~24% vs. ~12%), meaning that more people have escaped the disease. As expected, **we see that the introduction of dramatic measures to temporarily bring urban mobility down has a big impact on the disease spreading dynamics**.
 
-### Containing popular locations?
+### Quarantining popular locations?
 
 Now, let's see whether another intuitive idea of completely cutting off a few key popular locations has the desired effect. To do this, let's pick the locations associated with the upper 1 percentile of mobility flows,
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/coronavirus/Yerevan_top_locs.jpg" alt="Yerevan top locations">
 
-and completely block all flow to and from those locations, effectively establishing there a quarantine regime. Choosing a moderate $$\alpha = 0.5$$, we obtain:
+and completely block all flow to and from those locations, effectively establishing there a quarantine regime. As we can see from the plot, in Yerevan these locations are mostly in the city center, with two other locations being the two largest shopping malls. Choosing a moderate $$\alpha = 0.5$$, we obtain:
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/coronavirus/virus_without_malls.jpg" alt="Yerevan simulation without top locations">
 
