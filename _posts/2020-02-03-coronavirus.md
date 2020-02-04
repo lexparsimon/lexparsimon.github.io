@@ -48,7 +48,7 @@ $$
 h(t, j)=\frac{\beta_{t} S_{j, t}\left(1-\exp \left(-\sum_{k} m_{j, k}^{t} x_{k, t} y_{j, t}\right)\right)}{1+\beta_{t} y_{j, t}},
 $$
 
-where $$\beta_{t}$$ is the transmission rate on day $$t$$; $$x_{k, t}$$ and $$y_{k, t}$$ denote the fraction of the infected and susceptible populations on day $$t$$ at location $$k$$ and location $$j$$, respectively, given by $$x_{k, t}=\frac{I_{k, t}}{N_{k}}$$ and $$y_{j, t}=\frac{S_{j, t}}{N_{j}}$$, where $$N_k$$ and $$N_j$$ are the population sizes at the locations $$k$$ and $$j$$. Then we go ahead and simulate a stochastic process introducing the disease into locations with entirely susceptible populations, with $$I_{j, t+1}$$ being a Bernoulli random variable with probability $$h(t, j)$$.
+where $$\beta_{t}$$ is the transmission rate on day $$t$$; $$m_{j, k}^{t}$$ reflects mobility from location k to location j, $$x_{k, t}$$ and $$y_{k, t}$$ denote the fraction of the infected and susceptible populations on day $$t$$ at location $$k$$ and location $$j$$, respectively, given by $$x_{k, t}=\frac{I_{k, t}}{N_{k}}$$ and $$y_{j, t}=\frac{S_{j, t}}{N_{j}}$$, where $$N_k$$ and $$N_j$$ are the population sizes at the locations $$k$$ and $$j$$. Then we go ahead and simulate a stochastic process introducing the disease into locations with entirely susceptible populations, with $$I_{j, t+1}$$ being a Bernoulli random variable with probability $$h(t, j)$$.
 
 Once the infections are introduced at random locations, the disease spreads both within those locations and is carried and transmitted in other locations by travelling individuals. **This is where the urban mobility patterns characterised by the $$OD$$ flow matrix play a crucial role**. 
 
