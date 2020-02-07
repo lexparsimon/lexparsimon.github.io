@@ -8,7 +8,7 @@ tags:
   - data science
 header:
   image: /images/urban sensing/yerevan_urban_sensing.jpg
-  teaser: /images/urban sensing/Yerevan_fraction.jpg
+  teaser: https://scontent-fco1-1.xx.fbcdn.net/v/t31.0-8/20121239_1552807464792713_6766971072235693449_o.jpg?_nc_cat=104&_nc_ohc=6UQ31Mo9VpYAX9NMBgF&_nc_ht=scontent-fco1-1.xx&oh=6b3be757def76ca6f9f3d7bfcbb9d950&oe=5ECF166F
   relative_url: /images/urban sensing/Yerevan_fraction.jpg
 excerpt: 'Urban Sensing, Mobility, Data Science'
 mathjax: 'true'
