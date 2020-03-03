@@ -8,7 +8,7 @@ tags:
   - data science
 header:
   image: /images/coronavirus/corona_virus.jpg
-excerpt: 'Coronavirus, Mathematical Modelling, Data Science'
+excerpt: 'Imagine that the coronavirus epidemic breaks out at a random location in the city. How will it spread? What can be done to contain it?'
 mathjax: 'true'
 ---
 
