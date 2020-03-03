@@ -9,7 +9,7 @@ tags:
 header:
   image: /images/urban sensing/yerevan_urban_sensing.jpg
   teaser: /images/urban sensing/Yerevan_fraction.jpg
-excerpt: 'Urban Sensing, Mobility, Data Science'
+excerpt: 'Did you know that a surprisingly small number of taxi vehicles is enough to cover a large portion of a city?'
 mathjax: 'true'
 ---
 
