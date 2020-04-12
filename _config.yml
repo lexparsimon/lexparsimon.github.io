@@ -166,6 +166,7 @@ include:
   - .htaccess
   - _pages
   - _statistics
+  - _essays
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -319,6 +320,15 @@ defaults:
   - scope:
       path: ""
       type: statistics
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      
+  # _essays
+  - scope:
+      path: ""
+      type: essays
     values:
       layout: single
       author_profile: true
