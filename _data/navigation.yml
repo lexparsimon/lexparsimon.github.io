@@ -6,6 +6,8 @@ main:
     url: /CityScience/
   - title: "Data Science"
     url: /DataScience/
+  - title: "Essays"
+    url: /Essays/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
