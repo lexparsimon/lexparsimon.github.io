@@ -293,6 +293,9 @@ collections:
   statistics:
     output: true
     permalink: /:collection/:path/
+  essays:
+    output: true
+    permalink: /:collection/:path/
 
 # Defaults
 defaults:
