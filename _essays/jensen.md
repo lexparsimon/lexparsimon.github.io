@@ -1,5 +1,5 @@
 ---
-title: "Jensen's inequality, decision making under uncertainty, and why economic liberalism inevitably leads to planned economy"
+title: "Jensen's inequality, decision making under uncertainty, and why economic liberalism inevitably(?) leads to planned economy"
 date: 2020-04-16
 tags:
   - Jensen's inequality
@@ -7,7 +7,7 @@ tags:
   - Uncertainty
   - liberalism
 header:
-  image: /images/correlation/MU.jpeg
+  image: /images/jensen/jensen_eng.jpg
 excerpt: 'Decision making, Uncertainty, liberalism, Probability theory'
 mathjax: 'true'
 ---
@@ -31,4 +31,17 @@ So what does this mean? We often hear that many scientific discoveries were made
 The same is valid for losses: urban planners know very well that if a city saturated with vehicles has, let's say, 500,000 cars, and the inflow of 10,000 new cars increases average travel time (i.e. the cost) by 5 minutes, then each additional inflow of 10,000 new cars will increase the cost not by 5, but 10, then 20, etc. minutes. This asymmetric nature of gain or loss functions underlies all decision making under uncertainty. You can see it in the diagram below:
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/jensen/jensen_eng.jpg" alt="Jensen inequality">
+
+## Jensen's inequality
+
+We needed an intro to convex functions to build Jensen's inequality upon. It is generally stated in the following form: if X is a random variable and $$f$$ is a convex function, then
+
+$$f(\mathbf{E}[X]) \leq \mathbf{E}[f(X)]$$.
+
+In English, this means that if $$f$$ is convex, than under random $$x$$s the average of the function of those $$x$$s is greater or equal to the function of $$x$$'s average. You can see the difference between these two in the image above as the highlighted red line. The same is true for concave functions, albeit with an opposite sign: $$f(\mathbf{E}[X]) \geq \mathbf{E}[f(X)]$$.
+
+In real life, this means that if our payoff or gain function is convex, than we benefit from uncertainty. This is because the average gain from the fluctuations of $$x$$, i.e. $$\mathbf{E}[f(X)]$$ is _always_ greater or equal to the case if we were to prefer certainty and opt for a fixed average value of $$x$$ and obtain a gain of $$f(\mathbf{E}[X])$$. For example, hospitalized patients from Covid-19 put on lung ventilators are advised to be given random doses of oxygen ranging in the 80-120% of the correct dose. Due to the convexity of the gain to the patient, the average gain from such dose fluctuations is higher than the gain from the correctly specified dose (in the left of the image).
+
+The opposite also holds: given a concave loss function, we should avoid uncertainty. Developing the city traffic example, urban planners should come up with such territorial development and zoning strategies as to minimize the daily fluctuations of car inflow in the city, since the average loss from random car inflow is greater or equal to a more or less certain amount of flow (right of the image).
+
 
