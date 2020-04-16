@@ -54,9 +54,9 @@ Under such conditions, when the systemic changes have made the gain functions no
 
 Let's say $$J$$ is the set of all agents in an economy, and $$P$$ is the probability measure assigned to that set, in which case $$P(j)=1 /|J|$$ for $$j \in J$$. $$X$$ is the set of actions each agent must choose from.
 The set $$S$$ lists possible event intensities. The objective function $$f(\cdot, \cdot): X \times S \rightarrow R$$ maps actions
-and events into the real line. Each agent wants to choose an action that maximizes $$f(\cdot, r)$$, where $$r \in S$$ is the actual event intensity. All agents know that $$r \in S$$, but they may not know  and may hold different beliefs about the (random) event intensity $$r$$. Hence, they may not be able to solve the optimization problem $$\max{x \in X} f(x, r)$$.
+and events into the real line. Each agent wants to choose an action that maximizes $$f(\cdot, r)$$, where $$r \in S$$ is the actual event intensity. All agents know that $$r \in S$$, but they may not know  and may hold different beliefs about the (random) event intensity $$r$$. Hence, they may not be able to solve the optimization problem $$\max_{x \in X} f(x, r)$$.
 
-Let's say that a central planner can prescribe each agent a feasible action. Thus, the planner selects any element of the Cartesian product set $$X^{|J|}$$. Let $$\boldsymbol{w} \equiv\left(w_{j}, j \in \boldsymbol{J}\right)$$ be any set of assigned actions with finite mean $$\mu_{w} \equiv \int w_{j} d P(j)$$. Then, Jensen’s inequality yields
+Let's say that a central planner can prescribe each agent a feasible action. Thus, the planner selects any element of the Cartesian product set $$X^{|J|}$$. Let be any set of assigned actions with finite mean $$\mu_{w} \equiv \int w_{j} d P(j)$$. Then, Jensen’s inequality yields
 
 $$f\left(\mu_{w}, s\right) \geq \int f\left(w_{j}, s\right) d P(j) \quad \text { for all } s \in S$$.
 
