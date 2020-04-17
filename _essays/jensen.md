@@ -62,7 +62,7 @@ $$f\left(\mu_{w}, s\right) \geq \int f\left(w_{j}, s\right) d P(j) \quad \text {
 
 As we can see, the average payoff when the planner assigns every agent action $$\mu_{w}$$ is greater or equal to the payoff with the diversified assignments $$\left(w_{j}, j \in J\right)$$. 
 
-In other words, Jensen's inequality [tells us](Policy relevant heterogeneity in the value of statistical life: New evidence from panel data quantile regressions) that under concave loss functions, the average systemic loss from many individual, different actions is **greater** than the loss in a planned economy setting with economic action prescribed to each individual!
+In other words, Jensen's inequality [tells us](https://link.springer.com/article/10.1007/s11166-009-9084-y) that under concave loss functions, the average systemic loss from many individual, different actions is **greater** than the loss in a planned economy setting with economic action prescribed to each individual!
 
 ## Structural change
 
