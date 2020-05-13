@@ -36,9 +36,10 @@ To answer these questions, we will build a simple [compartmental model](https://
 
 Since runnning individual-based epidemic models is [challening](https://www.sciencedirect.com/science/article/pii/S0198971514001367), and since our goal is to show general principles of epidemic spread in cities, and not to build a minutely calibrated and accurate epidemic model, we will follow the approach described in this [Nature article](https://www.nature.com/articles/s41467-017-02064-4), modifying the described classical [SIR model](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIR_model) for our needs.
 
-The model divides the population in three compartments. For each location $$i$$ at time $$t$$, the three compartments are as follows:
+The model divides the population in four compartments. For each location $$i$$ at time $$t$$, the four compartments are as follows:
 
 * $$S_{i, t}$$: the number of individuals not yet infected or susceptible to the disease.
+* $$E_{i, t}$$: the number of individuals infected but not yet infectious.
 * $$I_{i, t}$$: the number of individuals infected with the disease and capable of spreading the disease to those in the susceptible group.
 * $$R_{i, t}$$: the number of individuals who have been infected and then removed from the infected group, either due to recovery or due to death. Individuals in this group are not capable of contracting the disease again or transmitting the infection to others.
 
@@ -52,25 +53,31 @@ where $$\beta_{t}$$ is the transmission rate on day $$t$$; $$m_{j, k}^{t}$$ refl
 
 Once the infections are introduced at random locations, the disease spreads both within those locations and is carried and transmitted in other locations by travelling individuals. **This is where the urban mobility patterns characterised by the $$OD$$ flow matrix play a crucial role**. 
 
-Further, to formalise how the disease is transmitted by an infected person, we need the *basic reproduction number*, $$R_0$$. It is defined as $$R_0 = \beta_{t}/\gamma$$ where $$\gamma$$ is the recovery rate, and can be thought of as the expected number of secondary infections after an infected individual comes into contact with a susceptible population. At the time of this writing, the basic reproduction number for the Wuhan coronavirus [has been estimated](https://www.nejm.org/doi/full/10.1056/NEJMoa2001316) to be between 1.4 and 4. Let's take the worst case and assume it's 4. However, we should note that it's actually a random variable and the reported number is but the *expected* number. To make things a bit more interesting, we will run our simulations with different $$R_0$$ at each location, drawn from a good candidate distribution, $$Gamma$$, with mean 4:
-
-<img src="{{ site.url }}{{ site.baseurl }}/images/coronavirus/R_0.jpg" alt="coronavirus R_0">
+Further, to formalise how the disease is transmitted by an infected person, we need the *basic reproduction number*, $$R_0$$. It is defined as $$R_0 = \beta_{t}/\gamma$$ where $$\gamma$$ is the recovery rate, and can be thought of as the expected number of secondary infections after an infected individual comes into contact with a susceptible population. At the time of this writing, the basic reproduction number for the Wuhan coronavirus [has been estimated](https://www.nejm.org/doi/full/10.1056/NEJMoa2001316) to be between 1.4 and 4. Let's take the most frequently used average value of 2.4. However, we should note that it's actually a random variable and the reported number is but the *expected* number.
 
 We can now proceed to the model dynamics:
 
 $$
 \begin{equation}
 \begin{aligned}
-S_{j, t+1} &=S_{j, t}-\frac{\beta_{j, t} S_{j, t} I_{j, t}}{N_{j}} - \frac{\alpha S_{j, t} \sum_{k} m_{j, k}^{t} x_{k, t} \beta_{k, t}}{N_{j} + \sum_{k} m_{j, k}^{t}} \\
-I_{j, t+1} &=I_{j, t}+\frac{\beta_{j, t} S_{j, t} I_{j, t}}{N_{j}} +  \frac{\alpha S_{j, t} \sum_{k} m_{j, k}^{t} x_{k, t} \beta_{k, t}}{N_{j} + \sum_{k} m_{j, k}^{t}} -\gamma I_{j, t} \\
-R_{j, t+1} &=R_{j, t}+\gamma I_{j, t},
+S_{j, t+1} &=S_{j, t} - S_{j, t}\frac{ I_{j, t}}{P_{j}} \frac{R_0}{D_{I}} + \sum_{k} s_{j, k}^{t} \alpha_{j, k}^{t} - \sum_{k} s_{k, j}^{t} \alpha_{k, j}^{t} \\
+E_{j, t+1} &=E_{j, t} + S_{j, t}\frac{ I_{j, t}}{P_{j}} \frac{R_0}{D_{I}} - \frac{E_{j, t}}{D_{E}} + \sum_{k} e_{j, k}^{t} \alpha_{j, k}^{t} - \sum_{k} e_{k, j}^{t} \alpha_{k, j}^{t} \\
+I_{j, t+1} &=I_{j, t} + \frac{E_{j, t}}{D_{E}} - \frac{I_{j, t}}{D_{I}} + \sum_{k} i_{j, k}^{t} \alpha_{j, k}^{t} - \sum_{k} i_{k, j}^{t} \alpha_{k, j}^{t} \\
+R_{j, t+1} &=R_{j, t} + \frac{I_{j, t}}{D_{I}} + \sum_{k} r_{j, k}^{t} \alpha_{j, k}^{t} - \sum_{k} r_{k, j}^{t} \alpha_{k, j}^{t},
 \end{aligned}
 \end{equation}
 $$
 
-where $$\beta_{k, t}$$ is the (random) transmission rate at location $$k$$ on day $$t$$, and $$\alpha$$ is a coefficient denoting the [modal share](https://en.wikipedia.org/wiki/Modal_share) or the intensity of public transport vs. private car travel modes in the city.
+where 
 
-The model dynamics described in the above equations are very simple: on day $$t+1$$ at location $$j$$, we need to subtract from the susceptible population $$S_{j, t}$$ the fraction of people infected within location $$j$$ (the second term in the first equation) as well as the fraction of infected people that have arrived from other locations in the city, weighted by their respective tramsission rates $$\beta_{k, t}$$ (the third term in the first equation). Since the total population $$N_j = S_j + I_j + R_j$$, we need to move the subtracted portion to the infected group, while also moving those recovered to $$R_{j, t+1}$$ (second and third equations).
+* $P_{j}$ is the population in cell $j$,
+* $R_0$ is the [basic reproduction number](https://en.wikipedia.org/wiki/Basic_reproduction_number),
+* $D_{E}$ is the **incubation period**, i.e., $t_{first symptom} - t_{infected}$, with the assumption that during the incubation period the disease can't be transmitted (which is not the case in real life!)
+* $D_{I}$ is the **infection period**, i.e., the period the person can infect others,
+* $s_{j, k}^{t}$ is the number of susceptible people that went from cell $k$ to cell $j$ at time $t$,
+* $\alpha_{j, k}^{t}$ is a parameter specifying the quarantine strength or the [modal share](https://en.wikipedia.org/wiki/Modal_share) or the intensity of public transport vs. private car travel modes in the city..
+
+The model dynamics described in the above equations are very simple: on day $$t+1$$ at location $$j$$, we need to _subtract_ from the susceptible population $$S_{j, t}$$ the fraction of people infected within location $$j$$ (the second term in the first equation) and the number of susceptible people that have arrived from other locations in the city (the third term in the first equation), and we need to _add_ the number of susceptible people that have left cell $$j$$ to other locations in the city (the last term in the first equation). The other equations follow the same logic for the remaining *E*, *I*, and *R* groups.
 
 ## Simulation setup
 For this analysis, we will use the aggregated $$OD$$ flow matrix of a typical day obtained from GPS data provided by local ride sharing company [gg](https://www.ggtaxi.com) as a proxy for the mobility patterns in Yerevan city. Next, we need the population counts in each $$250 \times 250m$$ grid cell, which we approximate by proportionally scaling the extracted flow counts so that the total inflows in different locations sum up to approximately half of Yerevan's population of 1.1 million. This is actually a bold assumption, but since varying this portion yielded very similar results, we will stick to it.
@@ -102,63 +109,111 @@ We see an even smaller fraction of infected individuals at the epidemic's peak (
   
   ```python
   import numpy as np
-  # initialize the population vector from the origin-destination flow matrix
-  N_k = np.abs(np.diagonal(OD) + OD.sum(axis=0) - OD.sum(axis=1))
-  locs_len = len(N_k)                 # number of locations
-  SIR = np.zeros(shape=(locs_len, 3)) # make a numpy array with 3 columns for keeping track of the S, I, R groups
-  SIR[:,0] = N_k                      # initialize the S group with the respective populations
-  
-  first_infections = np.where(SIR[:, 0]<=thresh, SIR[:, 0]//20, 0)   # for demo purposes, randomly introduce infections
-  SIR[:, 0] = SIR[:, 0] - first_infections
-  SIR[:, 1] = SIR[:, 1] + first_infections                           # move infections to the I group
-  
-  # row normalize the SIR matrix for keeping track of group proportions
-  row_sums = SIR.sum(axis=1)
-  SIR_n = SIR / row_sums[:, np.newaxis]
-  
-  # initialize parameters
-  beta = 1.6
-  gamma = 0.04
-  public_trans = 0.5                                 # alpha
-  R0 = beta/gamma
-  beta_vec = np.random.gamma(1.6, 2, locs_len)
-  gamma_vec = np.full(locs_len, gamma)
-  public_trans_vec = np.full(locs_len, public_trans)
-  
-  # make copy of the SIR matrices 
-  SIR_sim = SIR.copy()
-  SIR_nsim = SIR_n.copy()
-  
-  # run model
-  print(SIR_sim.sum(axis=0).sum() == N_k.sum())
-  from tqdm import tqdm_notebook
-  infected_pop_norm = []
-  susceptible_pop_norm = []
-  recovered_pop_norm = []
-  for time_step in tqdm_notebook(range(100)):
-      infected_mat = np.array([SIR_nsim[:,1],]*locs_len).transpose()
-      OD_infected = np.round(OD*infected_mat)
-      inflow_infected = OD_infected.sum(axis=0)
-      inflow_infected = np.round(inflow_infected*public_trans_vec)
-      print('total infected inflow: ', inflow_infected.sum())
-      new_infect = beta_vec*SIR_sim[:, 0]*inflow_infected/(N_k + OD.sum(axis=0))
-      new_recovered = gamma_vec*SIR_sim[:, 1]
-      new_infect = np.where(new_infect>SIR_sim[:, 0], SIR_sim[:, 0], new_infect)
-      SIR_sim[:, 0] = SIR_sim[:, 0] - new_infect
-      SIR_sim[:, 1] = SIR_sim[:, 1] + new_infect - new_recovered
-      SIR_sim[:, 2] = SIR_sim[:, 2] + new_recovered
-      SIR_sim = np.where(SIR_sim<0,0,SIR_sim)
-      # recompute the normalized SIR matrix
-      row_sums = SIR_sim.sum(axis=1)
-      SIR_nsim = SIR_sim / row_sums[:, np.newaxis]
-      S = SIR_sim[:,0].sum()/N_k.sum()
-      I = SIR_sim[:,1].sum()/N_k.sum()
-      R = SIR_sim[:,2].sum()/N_k.sum()
-      print(S, I, R, (S+I+R)*N_k.sum(), N_k.sum())
-      print('\n')
-      infected_pop_norm.append(I)
-      susceptible_pop_norm.append(S)
-      recovered_pop_norm.append(R)
+from collections import namedtuple
+
+Param = namedtuple('Param', 'R0 DE DI I0 HospitalisationRate HospitalIters')
+# I0 is the distribution of infected people at time t=0, if None then randomly choose inf number of people
+
+# flow is a 3D matrix of dimensions r x n x n (i.e., 84 x 549 x 549),
+# flow[t mod r] is the desired OD matrix at time t.
+
+def seir(par, distr, flow, alpha, iterations, inf):
+    
+    r = flow.shape[0]
+    n = flow.shape[1]
+    N = distr[0].sum() # total population, we assume that N = sum(flow)
+    
+    Svec = distr[0].copy()
+    Evec = np.zeros(n)
+    Ivec = np.zeros(n)
+    Rvec = np.zeros(n)
+    
+    if par.I0 is None:
+        initial = np.zeros(n)
+        # randomly choose inf infections
+        for i in range(inf):
+            loc = np.random.randint(n)
+            if (Svec[loc] > initial[loc]):
+                initial[loc] += 1.0
+                
+    else:
+        initial = par.I0
+    assert ((Svec < initial).sum() == 0)
+    
+    Svec -= initial
+    Ivec += initial
+    
+    res = np.zeros((iterations, 5))
+    res[0,:] = [Svec.sum(), Evec.sum(), Ivec.sum(), Rvec.sum(), 0]
+    
+    realflow = flow.copy() # copy!
+
+    # The two lines below normalise the flows and then multiply them by the alpha values. 
+    # This is actually the "wrong" the way to do it because alpha will not be a *linear* measure 
+    # representing lockdown strength but a *nonlinear* one.
+    # The normalisation strategy has been chosen for demonstration purposes of numpy functionality.
+    # (Optional) can you rewrite this part so that alpha remains a linear measure of lockdown strength? :)
+    realflow = realflow / realflow.sum(axis=2)[:,:, np.newaxis]    
+    realflow = alpha * realflow 
+    
+    history = np.zeros((iterations, 5, n))
+    history[0,0,:] = Svec
+    history[0,1,:] = Evec
+    history[0,2,:] = Ivec
+    history[0,3,:] = Rvec
+    
+    eachIter = np.zeros(iterations + 1)
+    
+    # run simulation
+    for iter in range(0, iterations - 1):
+        realOD = realflow[iter % r]
+        
+        d = distr[iter % r] + 1
+        
+        if ((d>N+1).any()): #assertion!
+            print("Houston, we have a problem!")
+            return res, history
+        # N =  S + E + I + R
+        
+        newE = Svec * Ivec / d * (par.R0 / par.DI)
+        newI = Evec / par.DE
+        newR = Ivec / par.DI
+        
+        Svec -= newE
+        Svec = (Svec 
+               + np.matmul(Svec.reshape(1,n), realOD)
+               - Svec * realOD.sum(axis=1)
+                )
+        Evec = Evec + newE - newI
+        Evec = (Evec 
+               + np.matmul(Evec.reshape(1,n), realOD)
+               - Evec * realOD.sum(axis=1)
+                )
+                
+        Ivec = Ivec + newI - newR
+        Ivec = (Ivec 
+               + np.matmul(Ivec.reshape(1,n), realOD)
+               - Ivec * realOD.sum(axis=1)
+                )
+                
+        Rvec += newR
+        Rvec = (Rvec 
+               + np.matmul(Rvec.reshape(1,n), realOD)
+               - Rvec * realOD.sum(axis=1)
+                )
+                
+        res[iter + 1,:] = [Svec.sum(), Evec.sum(), Ivec.sum(), Rvec.sum(), 0]
+        eachIter[iter + 1] = newI.sum()
+        res[iter + 1, 4] = eachIter[max(0, iter - par.HospitalIters) : iter].sum() * par.HospitalisationRate
+        
+        history[iter + 1,0,:] = Svec
+        history[iter + 1,1,:] = Evec
+        history[iter + 1,2,:] = Ivec
+        history[iter + 1,3,:] = Rvec
+        
+        
+    return res, history
+
   ```
 </details>
 <br/>
