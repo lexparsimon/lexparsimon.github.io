@@ -70,12 +70,12 @@ $$
 
 where 
 
-* $P_{j}$ is the population in cell $j$,
-* $R_0$ is the [basic reproduction number](https://en.wikipedia.org/wiki/Basic_reproduction_number),
-* $D_{E}$ is the **incubation period**, i.e., $t_{first symptom} - t_{infected}$, with the assumption that during the incubation period the disease can't be transmitted (which is not the case in real life!)
-* $D_{I}$ is the **infection period**, i.e., the period the person can infect others,
-* $s_{j, k}^{t}$ is the number of susceptible people that went from cell $k$ to cell $j$ at time $t$,
-* $\alpha_{j, k}^{t}$ is a parameter specifying the quarantine strength or the [modal share](https://en.wikipedia.org/wiki/Modal_share) or the intensity of public transport vs. private car travel modes in the city..
+* $$P_{j}$$ is the population in cell $$j$$,
+* $$R_0$$ is the [basic reproduction number](https://en.wikipedia.org/wiki/Basic_reproduction_number),
+* $$D_{E}$$ is the **incubation period**, i.e., $$t_{first symptom} - t_{infected}$$, with the assumption that during the incubation period the disease can't be transmitted (which is not the case in real life!)
+* $$D_{I}$$ is the **infection period**, i.e., the period the person can infect others,
+* $$s_{j, k}^{t}$$ is the number of susceptible people that went from cell $$k$$ to cell $$j$$ at time $$t$$,
+* $$\alpha_{j, k}^{t}$$ is a parameter specifying the quarantine strength or the [modal share](https://en.wikipedia.org/wiki/Modal_share) or the intensity of public transport vs. private car travel modes in the city..
 
 The model dynamics described in the above equations are very simple: on day $$t+1$$ at location $$j$$, we need to _subtract_ from the susceptible population $$S_{j, t}$$ the fraction of people infected within location $$j$$ (the second term in the first equation) and the number of susceptible people that have arrived from other locations in the city (the third term in the first equation), and we need to _add_ the number of susceptible people that have left cell $$j$$ to other locations in the city (the last term in the first equation). The other equations follow the same logic for the remaining *E*, *I*, and *R* groups.
 
