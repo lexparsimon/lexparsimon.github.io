@@ -142,7 +142,7 @@ We see that the covered fraction computed the first way is in near perfect agree
 The rapid increase of the $$\langle C\rangle_{N_{V}}$$ curves reveals that taxi fleets have large sensing power, easily covering the popular street segments, while rarely visited unpopular segments, are more and more difficult to cover. We see a law of diminishing returns: while covering the entire city is difficult, a considerable fraction can be covered with relative ease at a low cost. As mentioned in the beginning, only roughly about 30 taxi vehicles are needed to cover more than a third of the entire city, and up to 70% if we restrict the city to the central districts.
 
 Here is a nice animation summarizing the study in Yerevan:
-![Alt Text](/images/urban sensing/Yerevan_sensing.gif.gif)
+![Alt Text](/images/urban sensing/Yerevan_sensing.gif)
 
 ## Conclusion
 
