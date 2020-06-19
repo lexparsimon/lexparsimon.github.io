@@ -12,7 +12,7 @@ excerpt: 'Imagine that the coronavirus epidemic breaks out at a random location 
 mathjax: 'true'
 ---
 
-**You can learn the entire modelling, simulation and spatial visualisation of the epidemic spreading in cities using just Python in [this online course](https://www.udemy.com/course/covid-19-urban-epidemic-modelling-in-python/?referralCode=220EF2D17E80758E78B5).**
+**You can learn the entire modelling, simulation and spatial visualisation of the epidemic spreading in cities using just Python in [this online course](https://www.udemy.com/course/covid-19-urban-epidemic-modelling-in-python/?referralCode=220EF2D17E80758E78B5) or in [this one](https://skl.sh/30Vdq7J).**
 
 ## Are cities prepared for epidemics? 
 The recent [2019-nCoV Wuhan coronavirus](https://en.wikipedia.org/wiki/Novel_coronavirus_(2019-nCoV)) outbreak in China has sent shocks through financial markets and entire economies, and has duly triggered panic among the general population around the world. On 30 January 2020, 2019-nCoV was even [designated](https://www.bbc.com/news/world-51318246) a global health emergency by the World Health Organization (WHO). At the time of this writing, no specific treatment verified by medical research standards has yet been discovered. Moreover, some key epidemiological metrics such as the [basic reproduction number](https://en.wikipedia.org/wiki/Basic_reproduction_number) (the average number of people infected by an ill individual) are still unknown.
