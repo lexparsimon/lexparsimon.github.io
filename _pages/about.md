@@ -14,4 +14,4 @@ Do not hesitate to contact me for questions, suggestions, and collaborations.
 
 * Curado, M., Tortosa, L., Vicent, J.F. and Yeghikyan, G., 2020. Analysis and comparison of centrality measures applied to urban networks with data. _Journal of Computational Science_, p.101127.
 * Yeghikyan, G., Opolka, F.L., Nanni, M., Lepri, B. and Lio, P., 2020. Learning Mobility Flows from Urban Features with Spatial Interaction Models and Neural Networks. _arXiv preprint arXiv:2004.11924_.
-* A first draft of my PhD thesis titled "Urban Structure and Mobility as Spatio-temporal complex Networks" can be found [here](https://lexparsimon.github.io/pdfs/PhD_Thesis_Gevorg_Yeghikyan_Corrected.pdf). 
+* A first draft of my PhD thesis titled "Urban Structure and Mobility as Spatio-temporal complex Networks" can be found [here](https://lexparsimon.github.io/pdfs/PhD_Thesis_Gevorg_Yeghikyan_Corrected.pdf) and the slides of a short presentation [here](https://lexparsimon.github.io/pdfs/PhD_thesis_draft_presentation.pdf). 
