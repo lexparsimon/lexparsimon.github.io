@@ -106,7 +106,7 @@ So far, the solution has been to tap into cheap labour in the third world. For e
  
 ## So what is at stake?
  
-In the developed world, given the growing ambitions and aspirations of creative workers, gradual and unequal automation can trigger new forms of social organisation of space following the logic discussed in our historical excursion as well as in the shift of urban activity to the "long tail". In fact, the impact of the growing political relevance of the creative class on real estate is _already_ palpable in such business models as that of WeWork. As described in a [piece in the Atlantic](https://www.theatlantic.com/sponsored/wework-2018/focus-on-community/1832/):
+In the developed world, given the growing ambitions and aspirations of creative workers, gradual and unequal automation can trigger new forms of social organisation of space following the logic discussed in our historical excursion as well as in the shift of urban activity to the "long tail". In fact, the impact of the growing political relevance of the creative class on real estate is _already_ palpable in such business models as that of [WeWork](https://en.wikipedia.org/wiki/WeWork). As described in a [piece in the Atlantic](https://www.theatlantic.com/sponsored/wework-2018/focus-on-community/1832/):
 
 _"The bespoke spaces are appealing to big organizations because they allow for a nimble office experience in which employees aren’t necessarily bound to their desks but are free to roam and connect with other businesses and entrepreneurs, creating a looser, more innovative environment in which ideas can sprout."_
 
