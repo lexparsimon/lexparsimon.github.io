@@ -7,7 +7,7 @@ tags:
   - creative class
   - segregation
 header:
-  image: /images/jensen/jensen_eng.jpg
+  image: /images/Social conflict/robot.jpg
 excerpt: 'Will AI and automation bring about a new social conflict?'
 mathjax: 'true'
 ---
@@ -26,43 +26,26 @@ for ideas about the future of work, social relations, forms of social organizati
 
 So how should we approach this question? One need not be familiar with Marxist thought to know that capitalist production functions by
 appropriating the surplus value created by (social) labour. However, what is interesting in terms of the possibility of a new social 
-conflict due to AI and automation, is how capitalism does so. In [Capital](https://en.wikipedia.org/wiki/Das_Kapital), Marx distinguishes between formal and real subsumption of 
-labour by capital. Under formal subsumption, labour is exploited by capital simply in socio-economic terms. It occurs when the 
-capitalist monopolises the means of production, and therefore, forces the worker to yield to the conditions of wage labour, become hired,
-and give away their added value. Real subsumption, on the other hand, occurs along with the technological evolution of capitalist 
-production, under which the worker is dominated by the capitalist not only because he is hired by the latter, but also because in the 
-very process of production, the worker is exploited by the material movement of capital. He is dominated by the system of machines and 
-becomes a kind of a living appendix to them, forced to work according to the technological logic of the machinery he operates, or rather,
-is operated by. In other words, the worker is subsumed by capital not only in terms of production relations, but also in terms of the 
-very production processes he works in. This, according to Marx, is what makes the domination of labour by capital in organisational and
-administrative terms, and hence, the efficient obtaining of maximum surplus value from the employment of labour, possible. 
+conflict due to AI and automation, is how capitalism does so. In [Capital](https://en.wikipedia.org/wiki/Das_Kapital), Marx distinguishes between _formal_ and _real_ subsumption of labour by capital. Under _formal_ subsumption, labour is exploited by capital simply in socio-economic terms. It occurs when the capitalist monopolises the means of production, and therefore, forces the worker to yield to the conditions of wage labour, become hired, and give away their added value. _Real_ subsumption, on the other hand, occurs along with the technological evolution of capitalist production, under which the worker is dominated by the capitalist not only because he is hired by the latter, but also because in the very process of production, the worker is exploited by the material movement of capital. He is dominated by the system of machines and becomes a kind of a living appendix to them, forced to work according to the technological logic of the machinery he operates, or rather, is operated by. In other words, the worker is subsumed by capital not only in terms of production relations, but also in terms of the very production processes he works in. This, according to Marx, is what makes the domination of labour by capital in organisational and administrative terms, and hence, the efficient obtaining of maximum surplus value from the employment of labour, possible. 
 This theoretical framework can be easily extended to post-industrial economies dominated by services by replacing the machinery logic 
 with, for instance, the bureaucratic-administrative logic of typical office work.
 
-Now, what is it that changes in capitalist production with the advent and introduction of Industry 4.0 with Machine-to-Machine, 
-Internet of Things, and AI systems? The worker as an appendix to the production process essentially disappears, and with it, disappears
-also the bundle of manager and supervisor positions telling the worker what and how to do, since there is no one anymore to command over:
-algorithms and robots are now at work. Unlike the disappearing factory or white collar workers, the remaining employees, required to 
-develop, innovate, and sustain production, such as R&D scientists, engineers, and business developers, are not working under real 
-subsumption by capital. They are mainly concerned with intellectual and creative work in which they are operationally free. Although the
-external socio-economic conditions are still dictated by capital since these creative workers are being employed by it (formal 
-subsumption), in the very creative process, however, they are not functionally dominated by capital. Moreover, with the capitalist 
-losing leverage over traditional workers due to automation replacing them, the creative workers gain further space for operational 
-freedom. Thus, the widespread introduction of Industry 4.0 and AI systems completely or partially abolishes real subsumption in 
-capitalist production. 
+Now, what is it that changes in capitalist production with the advent and introduction of Industry 4.0 with [Machine to Machine](https://en.wikipedia.org/wiki/Machine_to_machine), 
+[Internet of Things](https://en.wikipedia.org/wiki/Internet_of_things), and AI systems? The worker as an appendix to the production process essentially disappears, and with it, disappears also the bundle of manager and supervisor positions telling the worker what and how to do, since there is no one anymore to command over: algorithms and robots are now at work. Unlike the disappearing factory or white collar workers, the remaining employees, required to develop, innovate, and sustain production, such as R&D scientists, engineers, and business developers, are not working under _real_ subsumption by capital. They are mainly concerned with intellectual and creative work in which they are operationally free. Although the external socio-economic conditions are still dictated by capital since these creative workers are being employed by it (_formal_ subsumption), in the very creative process, however, they are not functionally dominated by capital. Moreover, with the capitalist losing leverage over traditional workers due to automation replacing them, the creative workers gain further space for operational freedom. Thus, the widespread introduction of Industry 4.0 and AI systems completely or partially abolishes _real_ subsumption in capitalist production. 
 
 Interestingly, this is precisely where space for a new social conflict structurally opens up. While the conflict between the traditional
 industrial worker and the capitalist revolved around wages, working hours and conditions, the creative worker is typically well-paid, 
 enjoys retirement benefits, vacations, and is often even lured by employee share option plans, offering company shares to its employees.
 Therefore, the conflict is to be found in a different place.
 
+## 17th century France
+
 To understand the possibilities of the creative class entering into conflict with existing capitalist structures, it is worthwhile to 
 look back at a structurally similar socio-economic conflict in history: that between the bourgeoisie and feudal aristocracy in 17th 
 century Western Europe. Comedies of that epoch outstandingly show what the emerging bourgeois was striving for. He was striving to make 
 his way to the ruling classes through social climbing: marrying a noble woman or buying a noble title, thus turning from a bourgeois to 
-a noble. For example, Moliere’s classic play Le bourgeois gentilhomme, an evident oxymoron, mocks such attempts of social climbing by 
-the pretentious bourgeois and ingeniously shows the emerging class conflict.
-Likewise, being only formally subsumed by capital and having considerable operational freedom, resources, and time at their disposal, 
+a noble. For example, Moliere’s classic play [Le bourgeois gentilhomme](https://en.wikipedia.org/wiki/Le_Bourgeois_gentilhomme), an evident oxymoron, mocks such attempts of social climbing by the pretentious bourgeois and ingeniously shows the emerging class conflict.
+Likewise, being only _formally_ subsumed by capital and having considerable operational freedom, resources, and time at their disposal, 
 many creative workers today dream about converting their creative abilities into capital and applying it with profit, thus liberating
 themselves from the exploitation of capital and becoming capitalist entrepreneurs themselves. As we can see, this is structurally 
 analogous to the 17-18th century bourgeoisie striving to liberate themselves from the domination of the monarchic system offering 
@@ -70,14 +53,13 @@ privileges to the aristocracy, by attempting social climbing to become aristocra
 almost two centuries, until the conflict between the ever-stronger bourgeoisie and the ever-weaker aristocracy first manifested itself 
 in the former articulating their differences from the latter, and then burst into the bourgeois revolution.
 
-Coming back to our days, with the ever-growing creative class, capital still succeeds in keeping it in check by offering privileged 
+
+
+Coming back to our days, with the [ever-growing creative class](https://www.creativeclass.com/_wp/wp-content/uploads/2017/04/FINAL-LE-MIAMI-REPORT.pdf), capital still succeeds in keeping it in check by offering privileged 
 working conditions and share option plans, but it will not be able to do so indefinitely. Take the example of the so-called 
 Scandinavian Nordic model. With an unparalleled level of social guarantees, education and healthcare in the developed part of the world,
 it reached its limits already in the 80s when the portion of GDP redistributed through government spending, i.e., through a non-market 
-mechanism, reached 65%. It was unable to go further, since doing so would mean to encroach the very heart of capitalist production 
-destroying its main motivation: the appropriation of surplus value. Similarly, given the growth of the creative class, capital will not 
-be able to attract and sustain all creative workers, and given the discussed aspirations of the latter, the conflict will thus only be 
-exacerbated.
+mechanism, [reached 65%](https://ourworldindata.org/government-spending). It was unable to go further, since doing so would mean to encroach the very heart of capitalist production destroying its main motivation: the appropriation of surplus value. Similarly, given the growth of the creative class, capital will not be able to attract and sustain _all_ creative workers, and given the discussed aspirations of the latter, the conflict will thus only be exacerbated.
 
 Now, whether the discussed conflict between the growing creative class and the current bourgeoisie will culminate in a revolution or 
 will find another resolution is not only difficult to predict, but is secondary and irrelevant here. Of interest is how it can affect 
