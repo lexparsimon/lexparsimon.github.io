@@ -12,17 +12,21 @@ excerpt: 'Will AI and automation bring about a new social conflict?'
 mathjax: 'true'
 ---
 
-In his classic work, the Production of Space, Henri Lefebvre argued that “new social relationships call for a new space, and vice versa.”
+## Is a new social conflict structurally possible?
+
+In his classic work, the [Production of Space](https://www.wiley.com/en-us/The+Production+of+Space-p-9780631181774), Henri Lefebvre argued that “new social relationships call for a new space, and vice versa.”
 With all the discussions on AI and automation gaining momentum, along with the growing anxiety associated with them, the future of 
 production relations, power structures, and social relationships becomes increasingly uncertain. Hand in hand, as urban theory suggests,
 so does the future of cities. 
 In order to reflect on the possible urban futures unleashed by the effects of AI and automation on the social organization of space, 
-one should ask, following Lefebvre: is a new social conflict structurally possible? The answer to this question might contain the seeds 
+one should ask, following Lefebvre: **is a new social conflict structurally possible?** The answer to this question might contain the seeds 
 for ideas about the future of work, social relations, forms of social organization, and, ultimately, cities.
+
+## _Formal_ and _real_ subsumption
 
 So how should we approach this question? One need not be familiar with Marxist thought to know that capitalist production functions by
 appropriating the surplus value created by (social) labour. However, what is interesting in terms of the possibility of a new social 
-conflict due to AI and automation, is how capitalism does so. In Capital, Marx distinguishes between formal and real subsumption of 
+conflict due to AI and automation, is how capitalism does so. In [Capital](https://en.wikipedia.org/wiki/Das_Kapital), Marx distinguishes between formal and real subsumption of 
 labour by capital. Under formal subsumption, labour is exploited by capital simply in socio-economic terms. It occurs when the 
 capitalist monopolises the means of production, and therefore, forces the worker to yield to the conditions of wage labour, become hired,
 and give away their added value. Real subsumption, on the other hand, occurs along with the technological evolution of capitalist 
@@ -131,7 +135,7 @@ The internet changed this by making the production, distribution and storage of,
 are no longer coming from a few hits, but from what Anderson calls the “long tail” of highly customized products, of interest to a very 
 narrow audience.
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/Social conflict/chart-2.jpg" alt="Copyright Dror Poleg">
+<img src="{{ site.url }}{{ site.baseurl }}/images/Social conflict/chart-2.png" alt="Copyright Dror Poleg">
 
 The sheer quantity of such “narrow” products creates near-unlimited choice and makes the bulk of most consumer demand.
 Poleg calls this the economics of abundance and goes on to link this idea to urban geography. While economic scarcity historically produced spatially concentrated population and economic activity distributions in cities, the emergence of remote working options will cause population and economic activity to be distributed across a long tail of many city locations instead of a few spatially concentrated centers as before. He then notes that under economics of scarcity, the spatially concentrated urban locations are designed to appeal to the largest number of people since they share the same urban infrastructure, centrally located job market, and public spaces. However, under economics of abundance, people won’t have to share the same space. City locations could become as customized as the songs people choose to listen to, making cities even more segregated.
