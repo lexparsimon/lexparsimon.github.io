@@ -7,7 +7,7 @@ header:
 
 I'm a spatial data scientist and urban planner studying cities with machine learning, spatial statistics, and complex networks techniques at the [KDD Lab](https://kdd.isti.cnr.it/) in Pisa, Italy. Here I share my work, ideas, insights, replications of peer papers, as well as discussions about urban data science, smart cities, data-driven urban planning, urban economics, and how cities *actually* work.
 
-Working with urban planning firms, municipalities, UNDP, GIZ, and the World Bank, I also consult urban development, master planning, economics, (E-) mobility, and transportation projects worldwide.
+Working with urban planning firms, municipalities, UNDP, GIZ, and the World Bank, I also consult urban development, master planning, (E-) mobility, and transportation projects worldwide.
 
 You can find my CV [here](https://lexparsimon.github.io/pdfs/CV_Gevorg_Yeghikyan.pdf).
 Do not hesitate to contact me for questions, suggestions, and collaborations.
