@@ -9,9 +9,7 @@ I'm a spatial data scientist and urban planner studying cities with machine lear
 
 Working with urban planning firms, municipalities, UNDP, GIZ, and the World Bank, I also consult urban development, master planning, (E-) mobility, and transportation projects worldwide.
 
-You can find my CV [here](https://lexparsimon.github.io/pdfs/CV_Gevorg_Yeghikyan.pdf). Check out also this map:
-<a href="https://github.com/lexparsimon/lexparsimon.github.io/blob/master/images/index.html" title="Mapping New York Land Use">New York Land Use</a>
-Do not hesitate to contact me for questions, suggestions, and collaborations.
+You can find my CV [here](https://lexparsimon.github.io/pdfs/CV_Gevorg_Yeghikyan.pdf). Do not hesitate to contact me for questions, suggestions, and collaborations.
 
 ## Publications
 
