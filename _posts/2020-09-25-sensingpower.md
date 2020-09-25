@@ -1,6 +1,6 @@
 ---
 title: 'Urban sensing: quantifying the sensing power of vehicle fleets'
-date: 2019-12-26
+date: 2020-09-25
 tags:
   - urban mobility
   - urban monitoring
