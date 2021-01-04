@@ -9,7 +9,7 @@ I'm a PhD in spatial data science and an urban planner, studying cities with mac
 
 Working with urban planning firms, municipalities, UNDP, GIZ, and the World Bank, I also consult urban development, master planning, (E-) mobility, and transportation projects worldwide.
 
-You can find my CV [here](https://lexparsimon.github.io/pdfs/CV_Gevorg_Yeghikyan.pdf). Do not hesitate to contact me for questions, suggestions, and collaborations.
+You can find my CV [here](https://lexparsimon.github.io/pdfs/CV_Gevorg_Yeghikyan_2021.pdf). Do not hesitate to contact me for questions, suggestions, and collaborations.
 
 ## Publications
 
